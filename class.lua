@@ -37,37 +37,3 @@ function class(className)
     end
   end
 end
-
-
-class "A"(){
-  a = 0,
-  b = 0,
-  echo = function(self)
-    print(self.a, self.b, self.c)
-  end,
-  __call = function(self)
-    print(self.a, self.b)
-  end,
-  print_name = function(self)
-    print('A')
-  end,
-}
-
-class "B"(A) {
-  b=3,
-  c=2,
-  print_name = function(self)
-    print('B')
-  end,
-}
-
-local a = B:new()
-a.a=1
-a.b=2
-B:new():echo()
-a:echo()
--- B:new()()
---a()
-a:print_name()
-a:super('print_name')()
-print(a:super('b'))
