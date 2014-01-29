@@ -26,14 +26,16 @@ function BaseClass:super(name)
 end
 
 
-function class(className)
-  return function(superClass)
+-- function class(className)
+  -- return function(superClass)
+function class(superClass)
     superClass = superClass or BaseClass
     return function(class)
-      _G[className] = class
+      -- _G[className] = class
       class.__name = className
       class.__index = class
       setmetatable(class, superClass)
+      return class
     end
-  end
+  -- end
 end
